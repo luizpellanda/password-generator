@@ -40,6 +40,15 @@ header {
   margin: 0 auto;
   max-width: 800px;
   padding: 30px 40px;
+  text-align: center;
+}
+
+.options {
+  display: flex;
+  justify-content: space-between;
+  max-width: 400px;
+  align-items: center;
+  margin: 15px auto;
 }
 
 .card-header::after {
@@ -97,7 +106,7 @@ button[disabled] {
   float: right;
 }
 
-#password {
+#result {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;

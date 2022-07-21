@@ -45,22 +45,19 @@ generate.addEventListener('click', () => {
   const hasNumber = numberEl.checked;
   const hasSymbol = symbolEl.checked;
 
-	console.log(hasSymbol);
 	resultEl.innerText = generatePassword(hasLower, hasUpper, hasNumber, hasSymbol, length);
 });
 
 // Generate password function
+
 function generatePassword(lower, upper, number, symbol, length) {
   
-  let generatedPassword
+  let generatedPassword = '';
 
   const typesCount = lower + upper + number + symbol;
-  console.log('typesCount: ', typesCount);
 
   const typesArr = [{lower}, {upper}, {number}, {symbol}].filter(item => Object.values(item)[0]);
-
-  console.log('typesArr: ', typesArr);
-
+  
   if(typesCount == 0) {
     return '';
   }
@@ -68,9 +65,11 @@ function generatePassword(lower, upper, number, symbol, length) {
   for (let i = 0; i < length; i += typesCount){
     typesArr.forEach(type => {
       const funcName = Object.keys(type)[0];
-      console.log('funcName: ', funcName);
       generatedPassword += randomFunc[funcName]();
     });
   }
+
+  const finalPassword = generatedPassword.slice(0, length);
+  return finalPassword;
 }
 
